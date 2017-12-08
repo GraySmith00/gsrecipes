@@ -1,3 +1,7 @@
+.center {
+  text-align: center;
+}
+
 #logo {
   color: #fff;
   font-weight: bold;
@@ -6,4 +10,26 @@
 
 #logo:hover {
   color: #30a14a;
+}
+
+.jumbotron h1, h2 {
+  margin-bottom: 30px;
+  color: #343a40;
+}
+
+.jumbotron p {
+  margin: 30px;
+}
+
+.footer {
+  padding-top: 20px;
+  background-color: black;
+  color: white;
+  height: 80px;
+  text-align: center;
+  margin-top: 50px;
+}
+
+.footer span.text_muted {
+  color: #fff;
 }
