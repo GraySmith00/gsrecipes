@@ -1,6 +1,6 @@
 <div class="container">
-  <h1><%= @recipe.name.capitalize %></h1>
-  <hr>
+  <%= render 'shared/page_title', title: @recipe.name %>
+  
   <h4><%= @recipe.description %></h4>
   <p>
     <small>Created by: <%= @chef.chefname %></small>
