@@ -1,11 +1,16 @@
 <div class="container">
   <%= render 'shared/page_title', title: @recipe.name %>
   
-  <h4><%= @recipe.description %></h4>
-  <p>
-    <small>Created by: <%= @chef.chefname %></small>
-    
-  </p>
-  <small><%= time_ago_in_words(@recipe.created_at) %> ago </small>
+  <p><%= simple_format(@recipe.description) %></p>
+  
+  
+    <div class="card bg-dark">
+      <div class="card-block created-by-card">
+        <%= gravatar_for(@recipe.chef) %>
+        <span>Created by: <%= @chef.chefname %>, <%= time_ago_in_words(@recipe.created_at) %> ago</span>
+      </div>
+    </div>
+  
+  <small> </small>
 </div>
 
