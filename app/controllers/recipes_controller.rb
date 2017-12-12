@@ -1,7 +1,7 @@
 class RecipesController < ApplicationController
   
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.all.by_order_desc
   end
   
   def show
@@ -17,13 +17,13 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.chef = Chef.first
     
-    respond_to do |format|
-      if @recipe.save
-        format.html { redirect_to recipe_path(@recipe), notice: "Your recipe has been created!" }
-      else
-        format.html { render 'new' }
-      end
+    if @recipe.save
+      flash[:success] = "Your recipe has been created!"
+      redirect_to recipe_path(@recipe.id)
+    else
+      render 'new' 
     end
+   
   end
   
   private
@@ -31,5 +31,7 @@ class RecipesController < ApplicationController
     def recipe_params
       params.require(:recipe).permit(:name, :description)
     end
+    
+
   
 end
