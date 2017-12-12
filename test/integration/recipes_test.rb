@@ -27,6 +27,8 @@ end
     assert_match @recipe.name.capitalize, response.body
     assert_match @recipe.description, response.body
     assert_match @recipe.chef.chefname, response.body
+    assert_select 'a[href=?]', edit_recipe_path(@recipe.id), text: "Edit"
+    assert_select 'a[href=?]', recipe_path(@recipe.id), text: "Delete"
   end
   
   test "create new valid recipe" do

@@ -26,10 +26,33 @@ class RecipesController < ApplicationController
    
   end
   
+  def edit
+    @recipe = Recipe.find(params[:id])
+  end
+  
+  def update
+    @recipe = Recipe.find(params[:id])
+    
+    if @recipe.update(recipe_params)
+      flash[:success] = "Recipe has been succesfully updated!"
+      redirect_to recipe_path(@recipe.id)
+    else
+      render 'edit'
+    end
+  end
+  
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    
+    @recipe.destroy
+    flash[:success] = "Recipe has been succesfully removed."
+    redirect_to recipes_path
+  end
+  
   private
   
     def recipe_params
-      params.require(:recipe).permit(:name, :description)
+      params.require(:recipe).permit(:name, :description, :chef_id)
     end
     
 

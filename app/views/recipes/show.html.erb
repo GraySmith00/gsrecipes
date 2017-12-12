@@ -10,7 +10,10 @@
         <span>Created by: <%= @chef.chefname %>, <%= time_ago_in_words(@recipe.created_at) %> ago</span>
       </div>
     </div>
-  
-  <small> </small>
+  <br>
+  <p><%= link_to "Edit", edit_recipe_path(@recipe.id) %></p>
+  <p><%= link_to "Back to All Recipes", recipes_path %></p>
+  <p><%= link_to "Delete", recipe_path(@recipe.id), method: :delete,
+                           data: { confirm: "Are you sure you want to delete this recipe?" } %></p>
 </div>
 
