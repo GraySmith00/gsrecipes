@@ -1,57 +1,7 @@
 <div class="container">
   <%= render 'shared/page_title', title: "edit an existing recipe" %>
   
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <% if @recipe.errors.any? %>
-        <div class="card card-error">
-          <div class="card-header bg-danger text-white">
-            <%= pluralize(@recipe.errors.count, "error") %>
-            prohibited this <%= @recipe.class %> from being saved:
-          </div>
-          <div class="card-block card-error-text">
-            <p class="card-text">
-              <ul>
-                <% @recipe.errors.full_messages.each do |msg| %>
-                  <li><%= msg %></li>
-                <% end %>
-              </ul>
-            </p>
-            
-          </div>
-        </div>
-      <% end %>  
-    </div>
-  </div>
-
+  <%= render 'form' %>
   
-  <div class="row">
-    <div class="col-md-6 offset-md-3">
-      <%= form_for(@recipe, :html => {class: "form-horizontal", role: "form" }) do |f| %>
-       
-        
-        <div class="form-group">
-          <%= f.label :name, class: "control-label" %>
-          <%= f.text_field :name, class: "form-control", 
-                                  placeholder: "Recipe name", 
-                                  autofocus: true %>
-        </div>
-        
-        <div class="form-group">
-          <%= f.label :description %>
-          <%= f.text_area :description, class: "form-control", 
-                                        rows: 10,
-                                        placeholder: "Recipe Description" %>
-        </div>
-        
-        <div class="form-group">
-          <%= f.submit class: "btn btn-primary" %>
-        </div>
-        
-      <% end %>
-      
-      <%= link_to "Cancel", recipe_path(@recipe.id) %>
-    </div>
-  </div> 
 </div>
 
