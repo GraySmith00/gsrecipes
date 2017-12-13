@@ -12,6 +12,12 @@
       <li class="nav-item">
         <%= link_to "All Chefs", chefs_path, class: "nav-link" %>
       </li>
+      <li class="nav-item">
+        <%= link_to "Log In", login_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Log Out", logout_path, method: :delete, class: "nav-link" %>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Recipes
@@ -22,9 +28,6 @@
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

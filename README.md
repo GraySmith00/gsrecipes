@@ -41,3 +41,9 @@ what do we need going forward
 - chefs ability to create recipes from the application
 - restrictions for the apps features, only logged in chefs can create recipes, only recipe owners can edit their recipes
 - admin feature so admins can monitor the app
+
+Session
+- sessions_controller.rb
+- login routes - login, logout
+- session hash wont hit the database (not a model backed resource!)
+- test to get the route
