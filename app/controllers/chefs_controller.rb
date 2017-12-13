@@ -39,6 +39,14 @@ class ChefsController < ApplicationController
     end
   end
   
+  def destroy
+    @chef = Chef.find(params[:id])
+    
+    @chef.destroy
+    flash[:success] = "Chef has been successfully removed."
+    redirect_to chefs_path
+  end
+  
   
   
   private
