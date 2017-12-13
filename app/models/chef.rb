@@ -9,7 +9,9 @@ class Chef < ApplicationRecord
                     uniqueness: { case_sensitive: false }
                     
   has_secure_password
-  validates :password, presence: true, length: { minimum: 5 }
+  validates :password, presence: true, length: { minimum: 5 }, allow_nil: true
+  #allow_nil: true, will still require a password when creating a new record, but will allow update without password
+  
   
   
 end

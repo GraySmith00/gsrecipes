@@ -4,4 +4,6 @@
   
   <%= render 'recipes' %>
   
+  <%= will_paginate(@recipes, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+  
 </div>

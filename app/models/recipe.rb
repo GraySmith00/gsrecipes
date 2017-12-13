@@ -5,9 +5,11 @@ class Recipe < ApplicationRecord
   validates :description, presence: true, length: { minimum: 5, maximum: 2500 }
   validates :chef_id, presence: true
   
-  def self.by_order_desc
-    order("created_at DESC")
-  end
+  # def self.by_order_desc
+  #   order("created_at DESC")
+  # end
+  
+  default_scope -> { order(updated_at: :desc) }
   
 
   
