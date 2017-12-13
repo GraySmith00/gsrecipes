@@ -7,4 +7,6 @@ module ApplicationHelper
     image_tag(gravatar_url, alt: user.chefname, class: "img-circle")
   end
   
+  
+  
 end

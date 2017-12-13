@@ -1,1 +1,19 @@
-<%= render 'shared/page_title', title: "My Account" %>
+<div class="container">
+
+  <%= render 'shared/page_title', title: "Chef #{@chef.chefname.capitalize}" %>
+  
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="center profile-picture">
+        <%= gravatar_for @chef, size: 150 %>
+      </div>
+    </div>
+  </div>  
+  
+  <% if @recipes.count < 1 %>
+    <p>This chef doesn't have any recipes yet!</p>
+  <% else %>
+    <%= render 'recipes/recipes' %>
+  <% end %>
+
+</div>

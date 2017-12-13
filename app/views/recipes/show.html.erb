@@ -1,5 +1,5 @@
 <div class="container">
-  <%= render 'shared/page_title', title: @recipe.name %>
+  <%= render 'shared/page_title', title: @recipe.name.capitalize %>
   
   <p><%= simple_format(@recipe.description) %></p>
   
@@ -13,6 +13,7 @@
   <br>
   <p><%= link_to "Edit", edit_recipe_path(@recipe.id) %></p>
   <p><%= link_to "Back to All Recipes", recipes_path %></p>
+  <p><%= link_to "#{@chef.chefname}'s profile", chef_path(@chef.id) %></p>
   <p><%= link_to "Delete", recipe_path(@recipe.id), method: :delete,
                            data: { confirm: "Are you sure you want to delete this recipe?" } %></p>
 </div>

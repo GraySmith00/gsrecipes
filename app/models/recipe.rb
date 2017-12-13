@@ -9,4 +9,6 @@ class Recipe < ApplicationRecord
     order("created_at DESC")
   end
   
+
+  
 end
