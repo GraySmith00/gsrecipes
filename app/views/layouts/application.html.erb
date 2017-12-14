@@ -12,9 +12,11 @@
     
     <%= render 'shared/nav' %>
     
-    <%= render 'shared/flash_messages' %>
-    
-    <%= yield %>
+    <div class="wrapper">
+      <%= render 'shared/flash_messages' %>
+      
+      <%= yield %>      
+    </div>
     
     <%= render 'shared/footer' %>
     
