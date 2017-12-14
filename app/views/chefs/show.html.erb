@@ -16,5 +16,11 @@
     <%= render 'recipes/recipes' %>
     <%= will_paginate(@recipes, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
   <% end %>
+  
+  <hr>
+  
+  <% if logged_in? && (current_chef == @chef || current_chef.admin?) %>
+    <%= link_to @chef == current_chef ? "Edit your account" : "Edit #{@chef.chefname}'s account", edit_chef_path(@chef) %>
+  <% end %>
 
 </div>

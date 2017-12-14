@@ -1,6 +1,6 @@
 <div class="container">
   
-  <%= render "shared/page_title", title: "Edit your account" %>
+  <%= render "shared/page_title", title: @chef == current_chef ? "Edit your account" : "Edit #{@chef.chefname}'s account"  %>
   
   <%= render "form", action: "Update" %>
   
