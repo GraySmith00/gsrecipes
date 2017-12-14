@@ -11,10 +11,13 @@
       </div>
     </div>
   <br>
-  <p><%= link_to "Edit", edit_recipe_path(@recipe.id) %></p>
+  <% if logged_in? && @recipe.chef == current_chef %>
+    <p><%= link_to "Edit", edit_recipe_path(@recipe.id) %></p>
+    <p><%= link_to "Delete", recipe_path(@recipe.id), method: :delete,
+                             data: { confirm: "Are you sure you want to delete this recipe?" } %></p>
+  <% end %>
   <p><%= link_to "Back to All Recipes", recipes_path %></p>
   <p><%= link_to "#{@chef.chefname}'s profile", chef_path(@chef.id) %></p>
-  <p><%= link_to "Delete", recipe_path(@recipe.id), method: :delete,
-                           data: { confirm: "Are you sure you want to delete this recipe?" } %></p>
+  
 </div>
 
