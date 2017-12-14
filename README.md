@@ -47,3 +47,8 @@ Session
 - login routes - login, logout
 - session hash wont hit the database (not a model backed resource!)
 - test to get the route
+
+Add restrictions at controller level
+- recipes controller
+- chefs controller
+- update tests
