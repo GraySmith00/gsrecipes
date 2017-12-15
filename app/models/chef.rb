@@ -1,5 +1,6 @@
 class Chef < ApplicationRecord
   has_many :recipes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   
   before_save { self.email = email.downcase }
   validates :chefname, presence: true, length: { minimum: 2, maximum: 30 }

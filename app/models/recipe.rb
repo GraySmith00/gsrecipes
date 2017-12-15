@@ -2,6 +2,7 @@ class Recipe < ApplicationRecord
   belongs_to :chef 
   has_many :recipe_ingredients
   has_many :ingredients, through: :recipe_ingredients
+  has_many :comments, dependent: :destroy
   
   validates :name, presence: true, length: { minimum: 2, maximum: 30 }
   validates :description, presence: true, length: { minimum: 5, maximum: 2500 }
