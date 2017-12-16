@@ -10,6 +10,7 @@ class RecipesController < ApplicationController
   def show
     #@recipe = Recipe.find(params[:id])
     @chef = @recipe.chef
+    @comments = @recipe.comments.paginate(page: params[:page], per_page: 5)
   end
   
   def new
@@ -55,7 +56,7 @@ class RecipesController < ApplicationController
   private
   
     def recipe_params
-      params.require(:recipe).permit(:name, :description, :chef_id)
+      params.require(:recipe).permit(:name, :description, :chef_id, ingredient_ids: [])
     end
     
     def set_recipe

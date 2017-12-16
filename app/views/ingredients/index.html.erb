@@ -1,0 +1,20 @@
+<div class="container">
+  <%= render "shared/page_title", title: "All Ingredients" %>
+  
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <% @ingredients.each do |ingredient| %>
+        <h4><%= link_to ingredient.name.capitalize, ingredient_path(ingredient.id) %></h4>
+        <p><%= pluralize(ingredient.recipes.count, "recipe") if ingredient.recipes %></p>
+        <hr>
+      <% end %>
+      
+      <%= will_paginate(@recipes, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+    </div>
+  </div>
+  
+  <% if logged_in? && current_chef.admin? %>
+    <hr>
+    <%= link_to "New Ingredient", new_ingredient_path %>
+  <% end %>
+</div>
