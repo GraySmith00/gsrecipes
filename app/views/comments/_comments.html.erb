@@ -12,6 +12,10 @@
         [posted <%= time_ago_in_words(comment.created_at) %> ago
         by <%= comment.chef.chefname.capitalize %>]
       </small></span>
+      <% if logged_in? && (current_chef == comment.chef || current_chef.admin?) %>
+        <%= link_to "Remove Comment", [@recipe, comment], method: :delete,
+                                      class: "btn btn-outline-danger btn-sm" %>
+      <% end %>
     </div>
   </div>
   <hr>

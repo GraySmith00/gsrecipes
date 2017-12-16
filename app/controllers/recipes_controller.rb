@@ -11,6 +11,7 @@ class RecipesController < ApplicationController
     #@recipe = Recipe.find(params[:id])
     @chef = @recipe.chef
     @comments = @recipe.comments.paginate(page: params[:page], per_page: 5)
+    @comment = Comment.new
   end
   
   def new
@@ -18,7 +19,7 @@ class RecipesController < ApplicationController
   end
   
   def create
-    @recipe = Recipe.new(recipe_params)
+    @recipe = Recipe.create(recipe_params)
     @recipe.chef = current_chef
     
     if @recipe.save
