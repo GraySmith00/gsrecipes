@@ -15,6 +15,7 @@ class ChefsController < ApplicationController
     
     if @chef.save
       session[:chef_id] = @chef.id
+      cookies.signed[:chef_id] = @chef.id
       flash[:success] = "Welcome #{@chef.chefname.capitalize}, you can now create and share your own recipes!"
       redirect_to chef_path(@chef.id)
     else

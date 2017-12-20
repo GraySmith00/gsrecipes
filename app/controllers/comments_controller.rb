@@ -7,8 +7,9 @@ class CommentsController < ApplicationController
     @comment.chef = current_chef
     
     if @comment.save
-      flash[:success] = "Comment has been added."
-      redirect_to recipe_path(@recipe)
+      ActionCable.server.broadcast "comments", render(partial: "comments/comment", object: @comment)
+      #flash[:success] = "Comment has been added."
+      #redirect_to recipe_path(@recipe)
     else
       flash[:danger] = "Your comment was not added."
       redirect_to :back
