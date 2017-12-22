@@ -12,8 +12,9 @@
     
       <div class="message-container">
         <%= form_for(@message, remote: true, :html => {class: "form-horizontal", role: "form"}) do |f| %>
-          <%= f.text_area :content, class: "form-control", placeholder: "Send new message!" %>
-          <%= f.submit "Send", class: "btn btn-primary" %>
+          <%= f.text_area :content, class: "form-control", data: { behavior: "room_speaker" },
+                                    placeholder: "Send new message!" %>
+          <%= f.submit "Send", class: "btn btn-primary", data: { send: "message" } %>
         <% end %>
       </div>
       
@@ -21,4 +22,6 @@
   </div>  
   
 </div>
+
+
 
