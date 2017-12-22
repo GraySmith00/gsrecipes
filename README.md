@@ -52,3 +52,9 @@ Add restrictions at controller level
 - recipes controller
 - chefs controller
 - update tests
+- 
+
+Chef Chat
+- need a message model
+- messages will belong to chefs
+- validate :content
